@@ -130,48 +130,112 @@ for i, L in enumerate(LEADS):
     iy0, iy1 = LX0, LX0 + 64
     d.rectangle([x0, iy0, x1, iy1], fill=PAPER2, outline=INK, width=1)
     if L["n"] == 1:
-        d.rectangle([x0, iy1 - 26, x1, iy1], fill=(38, 34, 30))
-        rnd = random.Random(7)
-        bx = x0 + 6
-        while bx < x1 - 10:
-            bw = rnd.randint(12, 26)
-            bh = rnd.randint(12, 24)
-            d.rectangle([bx, iy1 - bh, bx + bw, iy1], fill=(18, 16, 12))
+        # --- Kyiv: night skyline under missile attack (rich, layered) ---
+        d.rectangle([x0, iy0, x1, iy1], fill=(32, 30, 28))
+        rnd = random.Random(11)
+        for _ in range(26):
+            sx = rnd.randint(int(x0) + 4, int(x1) - 4)
+            sy = rnd.randint(iy0 + 3, iy0 + 18)
+            d.ellipse([sx, sy, sx + 1, sy + 1], fill=GOLD_BG)
+        fx = x0 + 4
+        while fx < x1 - 8:
+            fw = rnd.randint(18, 34)
+            fh = rnd.randint(14, 26)
+            d.rectangle([fx, iy1 - 30 - fh, fx + fw, iy1 - 30], fill=(64, 60, 54))
+            for wy in range(iy1 - 30 - fh + 4, iy1 - 34, 6):
+                for wx in range(int(fx) + 3, int(fx) + fw - 3, 7):
+                    if rnd.random() < 0.4:
+                        d.rectangle([wx, wy, wx + 2, wy + 2], fill=(150, 130, 70))
+            fx += fw + 2
+        for tx in (x0 + 40, x0 + 150, x0 + 250):
+            d.arc([tx - 52, iy0 + 2, tx + 52, iy0 + 58], 205, 335, fill=(178, 34, 28), width=2)
+            d.arc([tx - 46, iy0 + 6, tx + 46, iy0 + 54], 205, 335, fill=(120, 30, 24), width=1)
+            d.ellipse([tx + 30, iy0 + 12, tx + 36, iy0 + 18], fill=GOLD_BG)
+            d.ellipse([tx + 31, iy0 + 13, tx + 35, iy0 + 17], fill=(255, 220, 120))
+        for bx in (x0 + 70, x0 + 230):
+            d.polygon([(bx, iy1 - 30), (bx - 10, iy0 + 8), (bx - 5, iy0 + 8)], fill=(176, 140, 60))
+            d.polygon([(bx, iy1 - 30), (bx + 10, iy0 + 8), (bx + 5, iy0 + 8)], fill=(176, 140, 60))
+        bx = x0 + 2
+        while bx < x1 - 8:
+            bw = rnd.randint(14, 28)
+            bh = rnd.randint(18, 34)
+            d.rectangle([bx, iy1 - bh, bx + bw, iy1], fill=(14, 12, 10))
             for wy in range(iy1 - bh + 4, iy1 - 4, 6):
-                d.rectangle([bx + 3, wy, bx + 5, wy + 2], fill=GOLD_BG)
+                for wx in range(int(bx) + 3, int(bx) + bw - 3, 6):
+                    if rnd.random() < 0.55:
+                        d.rectangle([wx, wy, wx + 2, wy + 2], fill=GOLD_BG)
             bx += bw + 3
-        for tx in (x0 + 30, x0 + 120, x0 + 220):
-            d.arc([tx - 40, iy0 + 2, tx + 40, iy0 + 46], 200, 340, fill=RED, width=2)
-            d.ellipse([tx + 26, iy0 + 10, tx + 32, iy0 + 16], fill=GOLD_BG)
-        d.arc([x0 + 60, iy1 - 18, x1 - 60, iy1 + 12], 180, 360, fill=INK, width=2)
-        for fx in (x0 + 90, x0 + 200):
-            d.polygon([(fx, iy1 - 10), (fx + 5, iy1 - 2), (fx + 10, iy1 - 10)], fill=RED)
+        for ex, ey in ((x0 + 96, iy1 - 34), (x0 + 210, iy1 - 28), (x0 + 280, iy1 - 36)):
+            d.ellipse([ex - 7, ey - 7, ex + 7, ey + 7], fill=(220, 90, 20))
+            d.ellipse([ex - 4, ey - 4, ex + 4, ey + 4], fill=(255, 200, 60))
+            d.polygon([(ex - 3, ey + 6), (ex, ey - 2), (ex + 3, ey + 6)], fill=RED)
+        for sx in (x0 + 100, x0 + 214):
+            for k in range(4):
+                d.ellipse([sx - 3 + k, iy1 - 44 - k * 4, sx + 3 + k, iy1 - 38 - k * 4], fill=(120, 114, 100))
     elif L["n"] == 2:
-        cx, cy = x0 + col_w * 0.42, iy0 + 34
-        for r, col in ((26, INK), (20, RED), (14, INK), (8, GOLD_BG)):
-            d.arc([cx - r, cy - r, cx + r, cy + r], 20, 300, fill=col, width=3)
+        # --- Akvan: cyclone spiral over coastline (rich, layered) ---
+        sea_x = x0 + int(col_w * 0.60)
+        d.rectangle([x0, iy0, sea_x, iy1], fill=(196, 186, 162))
+        d.rectangle([sea_x, iy0, x1, iy1], fill=(226, 216, 190))
+        d.line([(sea_x, iy0), (sea_x + 6, iy0 + 16), (sea_x - 4, iy0 + 32), (sea_x + 4, iy0 + 48), (sea_x, iy1)],
+               fill=(150, 140, 115), width=2)
+        for wy in range(iy0 + 10, iy1 - 4, 8):
+            d.arc([x0 + 8, wy - 6, x0 + 60, wy + 6], 200, 340, fill=(240, 234, 216), width=1)
+            d.arc([x0 + 70, wy - 4, x0 + 130, wy + 8], 200, 340, fill=(240, 234, 216), width=1)
+        cx, cy = x0 + col_w * 0.30, iy0 + 34
+        for r, col, w in ((30, INK, 3), (25, RED, 2), (20, INK, 3), (15, GOLD_BG, 2), (10, INK, 2), (5, RED, 2)):
+            d.arc([cx - r, cy - r, cx + r, cy + r], 15, 300, fill=col, width=w)
         d.ellipse([cx - 4, cy - 4, cx + 4, cy + 4], fill=RED)
-        d.polygon([(x0 + col_w * 0.78, iy0 + 4), (x1, iy0 + 4), (x1, iy1), (x0 + col_w * 0.72, iy1)], fill=(214, 205, 180))
-        d.line([(x0 + col_w * 0.72, iy0 + 4), (x0 + col_w * 0.78, iy1 - 4)], fill=GOLD_BG, width=3)
-        d.line([(x0 + 12, iy1 - 12), (x0 + 52, iy1 - 12)], fill=INK, width=2)
-        d.polygon([(x0 + 52, iy1 - 17), (x0 + 52, iy1 - 7), (x0 + 60, iy1 - 12)], fill=INK)
-        sx, sy = x0 + col_w - 34, iy1 - 22
-        d.polygon([(sx, sy), (sx + 22, sy), (sx + 11, sy - 10)], fill=RED)
-        d.rectangle([sx + 3, sy, sx + 19, sy + 9], outline=INK, width=2)
+        d.arc([cx - 38, cy - 38, cx + 38, cy + 38], 300, 60, fill=INK2, width=2)
+        d.arc([cx - 44, cy - 44, cx + 44, cy + 44], 120, 240, fill=INK2, width=2)
+        rnd2 = random.Random(21)
+        for _ in range(22):
+            rx = rnd2.randint(int(x0) + 6, int(sea_x) - 4)
+            ry = rnd2.randint(iy0 + 6, iy1 - 10)
+            d.line([(rx, ry), (rx - 3, ry + 7)], fill=(120, 114, 100), width=1)
+        d.line([(sea_x + 8, iy1 - 14), (x1 - 6, iy1 - 14)], fill=INK, width=2)
+        for bx in (sea_x + 14, sea_x + 60, sea_x + 104):
+            d.rectangle([bx, iy1 - 24, bx + 26, iy1 - 14], fill=RED, outline=INK, width=1)
+            for wx in range(int(bx) + 3, int(bx) + 24, 6):
+                d.rectangle([wx, iy1 - 22, wx + 3, iy1 - 18], fill=(255, 255, 255))
+            d.ellipse([bx + 4, iy1 - 14, bx + 8, iy1 - 10], fill=INK)
+            d.ellipse([bx + 18, iy1 - 14, bx + 22, iy1 - 10], fill=INK)
+        px, py = sea_x + 2, iy0 + 30
+        d.polygon([(px, py - 12), (px + 12, py - 8), (px, py - 4)], fill=RED)
+        d.line([(px, py - 12), (px, py + 6)], fill=INK, width=2)
+        for hx in (sea_x + 34, sea_x + 84):
+            d.rectangle([hx, iy1 - 34, hx + 18, iy1 - 26], outline=INK, width=1, fill=(255, 255, 255))
+            d.polygon([(hx - 2, iy1 - 34), (hx + 9, iy1 - 42), (hx + 20, iy1 - 34)], fill=RED)
+            d.rectangle([hx + 7, iy1 - 31, hx + 11, iy1 - 26], fill=INK)
     else:
-        gx, gy = x0 + col_w / 2, iy0 + 24
-        d.ellipse([gx - 20, gy - 20, gx + 20, gy + 20], outline=INK, width=2, fill=(214, 205, 180))
-        d.pieslice([gx - 20, gy - 20, gx + 20, gy + 20], 270, 90, fill=RED)
-        d.line([(gx, gy - 20), (gx, gy + 20)], fill=INK, width=2)
-        d.arc([gx - 20, gy - 20, gx + 20, gy + 20], 0, 360, fill=INK, width=2)
-        d.polygon([(x0 + 14, iy1 - 20), (x0 + col_w / 2, iy1 - 34), (x1 - 14, iy1 - 20)], outline=INK, width=2)
-        d.line([(x0 + 14, iy1 - 20), (x1 - 14, iy1 - 20)], fill=INK, width=2)
-        for dx in (x0 + 52, x1 - 66):
-            d.ellipse([dx, iy1 - 16, dx + 14, iy1 - 4], fill=INK)
-            d.pieslice([dx - 2, iy1 - 6, dx + 16, iy1 + 2], 180, 360, fill=INK)
-        d.rectangle([x0 + col_w / 2 - 14, iy1 - 18, x0 + col_w / 2 + 14, iy1 - 2], fill=(255, 255, 255), outline=RED, width=2)
-        for ly in (iy1 - 14, iy1 - 10, iy1 - 6):
-            d.line([(x0 + col_w / 2 - 10, ly), (x0 + col_w / 2 + 10, ly)], fill=INK2, width=1)
+        # --- COP31: negotiation hall (rich, layered) ---
+        d.rectangle([x0, iy0, x1, iy1], fill=(226, 216, 190))
+        d.rectangle([x0, iy1 - 14, x1, iy1], fill=(196, 186, 162))
+        flag_cols = [RED, GOLD_BG, INK, (60, 90, 60), (40, 60, 120), RED]
+        for i, fc in enumerate(flag_cols):
+            fx = x0 + 14 + i * 48
+            d.line([(fx, iy0 + 2), (fx, iy0 + 18)], fill=INK, width=1)
+            d.rectangle([fx, iy0 + 2, fx + 26, iy0 + 14], fill=fc, outline=INK, width=1)
+            d.line([(fx + 2, iy0 + 5), (fx + 24, iy0 + 5)], fill=(255, 255, 255), width=1)
+        for lx in range(int(x0) + 20, int(x1) - 10, 40):
+            d.ellipse([lx, iy0 + 22, lx + 4, iy0 + 26], fill=GOLD_BG)
+        px = x0 + col_w / 2
+        for tx0, tx1 in ((x0 + 8, px - 32), (px + 32, x1 - 8)):
+            d.rectangle([tx0, iy0 + 34, tx1, iy0 + 46], fill=(255, 255, 255), outline=INK, width=1)
+            for dx in range(int(tx0) + 12, int(tx1) - 6, 30):
+                d.ellipse([dx - 4, iy0 + 28, dx + 4, iy0 + 34], fill=INK)
+                d.rectangle([dx + 8, iy0 + 37, dx + 14, iy0 + 42], fill=RED)
+        d.polygon([(px - 26, iy1 - 14), (px + 26, iy1 - 14), (px - 16, iy0 + 28), (px + 16, iy0 + 28)], fill=INK)
+        d.rectangle([px - 18, iy0 + 26, px + 18, iy0 + 32], fill=GOLD_BG, outline=INK, width=1)
+        d.line([(px + 12, iy0 + 26), (px + 20, iy0 + 16)], fill=INK, width=2)
+        d.ellipse([px + 18, iy0 + 14, px + 22, iy0 + 18], fill=INK)
+        dx0, dy0 = x1 - 64, iy0 + 46
+        d.rectangle([dx0, dy0, dx0 + 58, iy1 - 2], fill=(255, 255, 255), outline=RED, width=2)
+        d.text((dx0 + 5, dy0 + 2), "DRAFT", font=font(SANS_B, 7), fill=RED)
+        for ly in range(dy0 + 12, iy1 - 6, 4):
+            d.line([(dx0 + 5, ly), (dx0 + 52, ly)], fill=INK2, width=1)
+        d.ellipse([dx0 + 40, iy1 - 12, dx0 + 52, iy1 - 2], outline=RED, width=2)
+    d.rectangle([x0, iy0, x1, iy1], outline=GOLD, width=2)
     yy = iy1 + 5
     d.text((x0, yy), f"{L['n']} — {L['kick']}", font=font(SANS_B, 10), fill=RED)
     yy += 14
