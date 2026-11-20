@@ -1,33 +1,34 @@
-# THE DAY, WITH CONSEQUENCES — news-image-20261120
+# FRIDAY, EVERYWHERE AT ONCE — news-image-20261120
 
-![The Day, With Consequences](entry.png)
+![Friday, Everywhere at Once](entry.png)
 
-[![make.fun bounty](https://make.fun/bounty/news-image-20261120/badge.svg)](https://make.fun/bounty/news-image-20261120)
-[![make.fun entry](https://make.fun/bounty/news-image-20261120/entry-badge.svg)](https://make.fun/bounty/news-image-20261120)
-[![make.fun leaderboard](https://make.fun/bounty/news-image-20261120/leaderboard-badge.svg)](https://make.fun/bounty/news-image-20261120)
+[![make.fun · news-image-20261120](https://make.fun/badge/news-image-20261120.svg)](https://make.fun/bounty/news-image-20261120?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
+[![rank](https://make.fun/badge/news-image-20261120/Gillangzx/news-image-20261120/rank.svg)](https://make.fun/bounty/news-image-20261120/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
+[![reward](https://make.fun/badge/news-image-20261120/Gillangzx/news-image-20261120/reward.svg)](https://make.fun/bounty/news-image-20261120?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
 
 Sum up 20 November 2026's world news in one image: a classic cream-paper
-front page — **THE WORLD TODAY, Friday 20 November 2026** — that pairs the
-proven news layout with a clear **SO WHAT** consequence line on every lead
-and every tile.
+front page — **THE WORLD TODAY, Friday 20 November 2026** — built on the
+winning front-page pattern (36 stories, 6 continents) with a simultaneity
+angle: everything, everywhere, at once.
 
-- **3 illustrated leads:** Kyiv hit by seven waves of missiles; Cyclone
-  Akvan makes landfall in Odisha; COP31 enters its final day deadlocked —
-  each with a flat-vector illustration and a red SO WHAT line.
-- **Six-cell number strip:** ~30 missiles, 3 killed in Kyiv, 300,000+
-  evacuated, 423 rescue teams, $120bn COP31 finance unresolved, 46 ships
-  waiting at Hormuz.
-- **Region tally:** Europe 9 · Asia 9 · Middle East 3 · Americas 7 ·
-  Africa 2 · Oceania 5 · Space 1.
+- **3 illustrated leads:** Kyiv hit by a seven-wave overnight barrage;
+  Cyclone Akvan makes landfall in Odisha; COP31 ends in a finance
+  deadlock — each with a large rich illustration and a red SO WHAT line.
+- **Six-cell gold number strip:** 300,000+ evacuated in Odisha, ~30
+  ballistic missiles fired at Kyiv, −6.22% Taiex close, 2.3% Japan October
+  headline CPI, 118 Phillips vs India, 8 years BepiColombo to Mercury.
+- **Region chips:** Europe 7 · Americas 8 · Asia-Pacific 10 · Mideast 3 ·
+  Africa 3 · Oceania 4 · World/Space 1.
 - **THE DAY BY HOURS:** 00:49 UTC New Caledonia quake → 01:25 Kyiv barrage
   → 02:00 UTC Akvan landfall → morning Asia markets plunge → midday COP31
   final day → P.M. Brussels reset summit → evening Las Vegas practice.
-- **10 tiles (stories 4–13):** Asia's AI sell-off, Japan inflation, China
-  rates, EU–UK reset summit, Saudi interceptions, Hormuz shut, Bukele's
-  third-term filing, Senegal boat capsize, Italy's CGIL strike, BepiColombo
-  reaches Mercury — each with a → consequence phrase.
-- **WHERE IT HAPPENED map** with gold numbered pins 1–12, grey dots for the
-  ALSO briefs, and a Mercury inset (13), plus **ALSO — stories 14–36**.
+- **10 tiles (stories 4–13) in 5×2:** Asia's AI sell-off, Japan core
+  inflation, China lending rates, EU–UK reset summit, Saudi interceptions,
+  Hormuz shut, Bukele's third-term filing, Senegal boat capsize, Italy's
+  CGIL strike, BepiColombo reaches Mercury — each with a small illustration
+  strip and a red → consequence phrase.
+- **THE WORLD IN ONE DAY map** with numbered red pins, plus **ALSO — 23
+  more stories** in three columns.
 - **DATE CHECK (red box):** the 19 November stories that are NOT today's
   list — including Anthropic's IPO debut and the ~$2tn figure, which were
   Thursday's news, not a Friday surge.
